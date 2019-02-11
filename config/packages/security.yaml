@@ -22,7 +22,8 @@ security:
                 # csrf_provider: form.csrf_provider
                 default_target_path: /profile
 
-            logout:       true
+            logout:
+                target: /login
             anonymous:    true
             # activate different ways to authenticate
 
