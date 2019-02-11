@@ -1,8 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="col-md-12 login-sec">
+    <h2 class="text-center">Création de mon profil</h2>
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-login float-right"/>
     </div>
-{{ form_end(form) }}
+    {{ form_end(form) }}
+</div>

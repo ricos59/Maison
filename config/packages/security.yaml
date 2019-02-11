@@ -20,10 +20,10 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
+                default_target_path: /profile
 
             logout:       true
             anonymous:    true
-
             # activate different ways to authenticate
 
             # http_basic: true

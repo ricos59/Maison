@@ -1,8 +1,13 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+{{ include("menu.html.twig") }}
+
+<div class="col-md-8 login-sec">
+    <h2 class="text-center">Modifier mon profil</h2>
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="btn btn-login float-right"/>
     </div>
-{{ form_end(form) }}
+    {{ form_end(form) }}
+</div>
