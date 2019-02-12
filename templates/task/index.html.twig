@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Liste des tâches{% endblock %}
+
+{% block body %}
+<div class="col-md-12 login-sec">
+    <h2 class="text-center">Liste des tâches</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.date ? task.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('task_show', {'id': task.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="{{ path('task_edit', {'id': task.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('task_new') }}">Create new</a>
+</div>
+{% endblock %}
