@@ -1,6 +1,8 @@
 {
     "devDependencies": {
         "@symfony/webpack-encore": "^0.22.0",
+        "bootstrap": "^4.3.0",
+        "popper.js": "^1.14.7",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
