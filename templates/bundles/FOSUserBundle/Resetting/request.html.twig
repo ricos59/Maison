@@ -1,5 +1,11 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% block fos_user_content %}
-{% include "@FOSUser/Resetting/request_content.html.twig" %}
+  <div class="white-panel">
+    <div class="login-show">
+      <h2>Réinitialisation de votre mot de passe</h2>
+      {% include "@FOSUser/Resetting/request_content.html.twig" %}
+    </div>
+  </div>
+
 {% endblock fos_user_content %}
