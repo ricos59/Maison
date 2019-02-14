@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Mukta');
+@import "~bootstrap/dist/css/bootstrap.min.css";
 body{
 font-family: 'Mukta', sans-serif;
 height:100vh;
@@ -28,7 +29,7 @@ right:0;left:0;
 }
 .white-panel{
  background-color: rgba(255,255, 255, 1);
- height:500px;
+ height:700px;
  position:absolute;
  top:-50px;
  width:50%;
@@ -98,7 +99,7 @@ right:0;left:0;
  outline: none;
 }
 .login-show input[type="submit"] {
- max-width: 150px;
+ max-width: 250px;
  width: 100%;
  background: #444444;
  color: #f9f9f9;
@@ -123,7 +124,7 @@ right:0;left:0;
  outline: none;
 }
 .register-show input[type="submit"] {
- max-width: 150px;
+ max-width: 250px;
  width: 100%;
  background: #444444;
  color: #f9f9f9;
