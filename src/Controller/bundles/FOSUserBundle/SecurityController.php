@@ -1,20 +1,22 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\bundles\FOSUserBundle;
 
 use FOS\UserBundle\Controller\SecurityController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
 
 
 class SecurityController extends BaseController{
 
   private $tokenManager;
 
-  public function __construct(CsrfTokenManagerInterface $tokenManager = null, FactoryInterface $formFactory)
+  public function __construct(CsrfTokenManagerInterface $tokenManager = null, FactoryInterface $formFactory, UserManagerInterface $userManager)
   {
     $this->tokenManager = $tokenManager;
     $this->formFactory = $formFactory;
+    $this->userManager = $userManager;
   }
 
 
@@ -47,7 +49,11 @@ class SecurityController extends BaseController{
     : null;
 
     //formulaire registration FOS
+    $user = $this->userManager->createUser();
+    $user->setEnabled(true);
+
     $form = $this->formFactory->createForm();
+    $form->setData($user);
 
     return $this->renderLogin(array(
       'last_username' => $lastUsername,

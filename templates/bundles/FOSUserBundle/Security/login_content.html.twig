@@ -19,7 +19,7 @@
 		{% if error %}
 		<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
-		<form action="{{ path("fos_user_security_check") }}"="fos_user_security_check" )=")" }}""="}}" "" method="post">
+		<form action="{{ path("fos_user_security_check") }}" method="post">
 			{% if csrf_token %}
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 			{% endif %}
@@ -32,12 +32,13 @@
 	<div class="register-show">
 		<h2>Création de Compte</h2>
 		{% trans_default_domain 'FOSUserBundle' %}
-
+{#
 		{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 		{{ form_widget(form) }}
 		<div>
 			<input type="submit" value="{{ 'registration.submit'|trans }}"/>
 		</div>
 		{{ form_end(form) }}
+		#}
 	</div>
 </div>
