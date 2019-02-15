@@ -4,3 +4,7 @@ fos_user_accueil:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+test:
+    path: /test
+    controller: App\Controller\bundles\FOSUserBundle\SecurityController::testAction

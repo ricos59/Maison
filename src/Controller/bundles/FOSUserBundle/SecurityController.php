@@ -19,6 +19,21 @@ class SecurityController extends BaseController{
     $this->userManager = $userManager;
   }
 
+    public function testAction(\Swift_Mailer $mailer)
+    {
+        $message = (new \Swift_Message('You Got Mail!'))
+            ->setFrom('sandradelaporte@gmail.com')
+            ->setTo('sandradelaporte@gmail.com')
+            ->setBody(
+                   "Ceci est mon message",
+                   'text/plain'
+               )
+           ;
+
+        $mailer->send($message);
+        return $this->redirectToRoute('fos_user_accueil');
+    }
+
 
   public function loginAction(Request $request){
 
