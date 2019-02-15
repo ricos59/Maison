@@ -14,7 +14,7 @@ position:relative;
 }
 a{
 text-decoration:none;
-color:#444444;
+/* color:#444444; */
 }
 .login-reg-panel{
  position: relative;
@@ -152,4 +152,7 @@ right:0;left:0;
 a{
 text-decoration:none;
 color:#2c7715;
+}
+nav, nav a{
+    color: white;
 }
