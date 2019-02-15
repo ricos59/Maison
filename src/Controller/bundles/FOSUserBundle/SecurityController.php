@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
-
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class SecurityController extends BaseController{
 
