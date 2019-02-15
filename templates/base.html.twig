@@ -9,8 +9,16 @@
 </head>
 <body>
   <div class="login-reg-panel">
+      {% block menu %}
+          {% include('menu.html.twig') %}
+      {% endblock %}
 
-    {% block body %}{% endblock %}
+      <div class="white-panel">
+        <div class="login-show">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
   </div>
   {% block javascripts %}
   {{ encore_entry_script_tags('app') }}
