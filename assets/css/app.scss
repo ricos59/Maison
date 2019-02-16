@@ -1,6 +1,19 @@
-
+/* import font */
 @import url('https://fonts.googleapis.com/css?family=Mukta');
-@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* Modif. couleur de base de bootstrap */
+$link-color: #444444;
+
+/* import the necessary Bootstrap files */
+@import "~bootstrap/scss/bootstrap";
+
+/* import font-awesome */
+@import "~font-awesome/scss/font-awesome";
+
+/* import datepicker */
+@import "~tempusdominus-bootstrap-4/src/sass/tempusdominus-bootstrap-4";
+
+
 body{
 font-family: 'Mukta', sans-serif;
 height:100vh;
@@ -12,9 +25,19 @@ background-position:center;
 position:relative;
  overflow-y: hidden;
 }
-a{
-text-decoration:none;
-/* color:#444444; */
+
+.btn {
+ max-width: 250px;
+ width: 100%;
+ background: #444444;
+ color: #f9f9f9;
+ border: none;
+ padding: 10px;
+ text-transform: uppercase;
+ border-radius: 2px;
+ float:right;
+ cursor:pointer;
+ margin:5px;
 }
 .login-reg-panel{
  position: relative;
@@ -98,18 +121,6 @@ right:0;left:0;
  border: 1px solid #b5b5b5;
  outline: none;
 }
-.login-show input[type="submit"] {
- max-width: 250px;
- width: 100%;
- background: #444444;
- color: #f9f9f9;
- border: none;
- padding: 10px;
- text-transform: uppercase;
- border-radius: 2px;
- float:right;
- cursor:pointer;
-}
 .login-show a{
  display:inline-block;
  padding:10px 0;
@@ -123,18 +134,7 @@ right:0;left:0;
  border: 1px solid #b5b5b5;
  outline: none;
 }
-.register-show input[type="submit"] {
- max-width: 250px;
- width: 100%;
- background: #444444;
- color: #f9f9f9;
- border: none;
- padding: 10px;
- text-transform: uppercase;
- border-radius: 2px;
- float:right;
- cursor:pointer;
-}
+
 .credit {
  position:absolute;
  bottom:10px;
@@ -148,10 +148,6 @@ right:0;left:0;
  font-weight: bold;
  letter-spacing: 1px;
  z-index: 99;
-}
-a{
-text-decoration:none;
-color:#2c7715;
 }
 nav, nav a{
     color: white;

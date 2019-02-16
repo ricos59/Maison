@@ -6,17 +6,37 @@
 */
 
 // any CSS you require will output into a single css file (app.css in this case)
-require('../css/app.css');
+require('../css/app.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
- const $ = require('jquery');
+const $ = require('jquery');
+
+// bootstrap
 require('bootstrap');
 
+// needed for datepicker
+window.moment = require('moment');
+
+// bootstrap datepicker component
+require('tempusdominus-bootstrap-4');
+
+// switch entre se connecter / s'enregistrer
 $(document).ready(function(){
   $('.login-info-box').fadeOut();
   $('.login-show').addClass('show-log-panel');
 });
-
+$(document).ready(function(){
+        $('.datetimepicker-input').datetimepicker({
+            locale:'fr',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+        });
+    });
 
 $('.login-reg-panel input[type="radio"]').on('change', function() {
   if($('#log-login-show').is(':checked')) {
