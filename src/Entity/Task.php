@@ -31,6 +31,16 @@ class Task
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $frequency_choice;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $frequency;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class Task
     public function setComments(?string $comments): self
     {
         $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function getFrequencyChoice(): ?string
+    {
+        return $this->frequency_choice;
+    }
+
+    public function setFrequencyChoice(?string $frequency_choice): self
+    {
+        $this->frequency_choice = $frequency_choice;
+
+        return $this;
+    }
+
+    public function getFrequency(): ?int
+    {
+        return $this->frequency;
+    }
+
+    public function setFrequency(?int $frequency): self
+    {
+        $this->frequency = $frequency;
 
         return $this;
     }
