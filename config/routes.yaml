@@ -1,5 +1,5 @@
 fos_user_accueil:
-    path: /login
+    path: /
     controller: App\Controller\bundles\FOSUserBundle\SecurityController::loginAction
 
 fos_user:
