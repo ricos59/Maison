@@ -26,6 +26,16 @@ class Task
      */
     private $date;
 
+    /**
+     *  @ORM\Column(type="integer", nullable=true)
+     */
+    private $frequency_choice;
+
+    /**
+     *  @ORM\Column(type="integer", nullable=true)
+     */
+    private $frequency_int;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +61,30 @@ class Task
     public function setDate(?\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getFrequencyChoice(): ?int
+    {
+        return $this->frequency_choice;
+    }
+
+    public function setFrequencyChoice(?int $frequency_choice): self
+    {
+        $this->frequency_choice = $frequency_choice;
+
+        return $this;
+    }
+
+    public function getFrequencyInt(): ?int
+    {
+        return $this->frequency_int;
+    }
+
+    public function setFrequencyInt(?int $frequency_int): self
+    {
+        $this->frequency_int = $frequency_int;
 
         return $this;
     }

@@ -26,9 +26,11 @@ $(document).ready(function(){
   $('.login-show').addClass('show-log-panel');
 });
 $(document).ready(function(){
-        $('.datetimepicker-input').datetimepicker({
+        $('#task_date').datetimepicker({
             locale:'fr',
-            format: 'YYYY-MM-DD hh:mm:ss',
+//            format: 'YYYY-MM-DD hh:mm:ss',
+            format: 'DD-MM-YYYY hh:mm:ss',
+            autoclose: true,
             icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",

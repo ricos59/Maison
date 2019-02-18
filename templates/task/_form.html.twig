@@ -1,4 +1,23 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_row(form.title) }}
+
+    <div class="form-group">
+        <i class="fa fa-calendar"></i> {{ form_label(form.date) }}
+        {{ form_widget(form.date) }}
+
+        <small>{{ form_help(form.date) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.date) }}
+        </div>
+    </div>
+    
+    {{ form_row(form.frequency_choice) }}
+
+    {{ form_row(form.frequency_int) }}
+
+
     <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+
 {{ form_end(form) }}

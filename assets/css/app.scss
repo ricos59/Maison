@@ -3,7 +3,7 @@
 
 /* Modif. couleur de base de bootstrap */
 $link-color: #444444;
-
+//$link-hover-color: white;
 /* import the necessary Bootstrap files */
 @import "~bootstrap/scss/bootstrap";
 
@@ -26,7 +26,7 @@ position:relative;
  overflow-y: hidden;
 }
 
-.btn {
+input[type="submit"], .btn {
  max-width: 250px;
  width: 100%;
  background: #444444;
