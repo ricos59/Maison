@@ -20,6 +20,7 @@ class TaskController extends AbstractController
      */
     public function index(TaskRepository $taskRepository): Response
     {
+      // dump( $this->getUser());
         return $this->render('task/index.html.twig', [
             'tasks' => $taskRepository->findAll(),
         ]);
@@ -92,5 +93,16 @@ class TaskController extends AbstractController
         }
 
         return $this->redirectToRoute('task_index');
+    }
+
+    /**
+     * @Route("/mytask", name="task_user", methods={"GET"})
+     */
+    public function mytask(TaskRepository $taskRepository): Response
+    {
+      // dump( $this->getUser());
+        return $this->render('task/index.html.twig', [
+            'tasks' => $taskRepository->findByUser($this->getUser()),
+        ]);
     }
 }
