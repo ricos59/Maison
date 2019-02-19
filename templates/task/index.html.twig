@@ -11,6 +11,10 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Date</th>
+                <th>Comments</th>
+                <th>Frequency_choice</th>
+                <th>Frequency</th>
+                <th>Utilisateurs</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +24,15 @@
                 <td>{{ task.id }}</td>
                 <td>{{ task.title }}</td>
                 <td>{{ task.date ? task.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ task.comments }}</td>
+                <td>{{ task.frequencyChoice }}</td>
+                <td>{{ task.frequency }}</td>
+                <td>
+                  {% for user in task.users %}
+                  {{ user.username }}
+                  {% endfor %}
+                </td>
+
                 <td>
                     <a href="{{ path('task_show', {'id': task.id}) }}">show</a>
                     <a href="{{ path('task_edit', {'id': task.id}) }}">edit</a>
@@ -27,7 +40,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

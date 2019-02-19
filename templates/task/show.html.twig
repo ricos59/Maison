@@ -19,6 +19,26 @@
                 <th>Date</th>
                 <td>{{ task.date ? task.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+            <tr>
+                <th>Comments</th>
+                <td>{{ task.comments }}</td>
+            </tr>
+            <tr>
+                <th>Frequency_choice</th>
+                <td>{{ task.frequencyChoice }}</td>
+            </tr>
+            <tr>
+                <th>Frequency</th>
+                <td>{{ task.frequency }}</td>
+            </tr>
+            <tr>
+              <th>Utilisateurs</th>
+              <td>
+                {% for user in task.users %}
+                {{ user.username }}
+                {% endfor %}
+              </td>
+            </tr>
         </tbody>
     </table>
 

@@ -13,25 +13,25 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
-
 class TaskType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('title', TextType::class, ['label' => 'Nom de la tâche'])
-            ->add('date', DateType::class, ['label' => 'Prochaine date d\'echéance'])
-            ->add('comments', TextareaType::class, ['label' => 'Notes'])
-            ->add('frequency_choice', ChoiceType::class, [
-              'label' => 'Répéter la fréquence',
-              'choices' => [
-                'jour' => 'jour',
-                'mois' => 'mois',
-                'année' => 'année',
-              ],
-            ])
-            ->add('frequency', IntegerType::class, ['label' => 'Répétition'])
-        ;
+      $builder
+          ->add('title', TextType::class, ['label' => 'Nom de la tâche'])
+          ->add('date', DateType::class, ['label' => 'Prochaine date d\'echéance'])
+          ->add('comments', TextareaType::class, ['label' => 'Notes'])
+          ->add('frequency_choice', ChoiceType::class, [
+            'label' => 'Répéter la fréquence',
+            'choices' => [
+              'jour' => 'jour',
+              'mois' => 'mois',
+              'année' => 'année',
+            ],
+          ])
+          ->add('frequency', IntegerType::class, ['label' => 'Répétition'])
+          ->add('users')
+      ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
