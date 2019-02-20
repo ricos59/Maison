@@ -41,5 +41,10 @@ task_user:
     controller: App\Controller\TaskController::mytask
     methods: GET
 
+task_user_day:
+    path: /task/mytask/date/
+    controller: App\Controller\TaskController::mytaskday
+    methods: GET
+
 #    path: /
 #    controller: App\Controller\DefaultController::index

@@ -91,4 +91,12 @@ class TaskController extends AbstractController
             'tasks' => $taskRepository->findByUser($this->getUser()),
         ]);
     }
+
+    public function mytaskday(TaskRepository $taskRepository): Response
+    {
+      // dump( $this->getUser());
+        return $this->render('task/index.html.twig', [
+            'tasks' => $taskRepository->findByUserDate($this->getUser()),
+        ]);
+    }
 }
