@@ -15,9 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TaskController extends AbstractController
 {
-    /**
-     * @Route("/", name="task_index", methods={"GET"})
-     */
+
     public function index(TaskRepository $taskRepository): Response
     {
       // dump( $this->getUser());
@@ -26,9 +24,6 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="task_new", methods={"GET","POST"})
-     */
     public function new(Request $request): Response
     {
         $task = new Task();
@@ -49,9 +44,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="task_show", methods={"GET"})
-     */
+
     public function show(Task $task): Response
     {
         return $this->render('task/show.html.twig', [
@@ -59,9 +52,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="task_edit", methods={"GET","POST"})
-     */
+
     public function edit(Request $request, Task $task): Response
     {
         $form = $this->createForm(TaskType::class, $task);
@@ -81,9 +72,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="task_delete", methods={"DELETE"})
-     */
+
     public function delete(Request $request, Task $task): Response
     {
         if ($this->isCsrfTokenValid('delete'.$task->getId(), $request->request->get('_token'))) {
@@ -95,9 +84,6 @@ class TaskController extends AbstractController
         return $this->redirectToRoute('task_index');
     }
 
-    /**
-     * @Route("/mytask", name="task_user", methods={"GET"})
-     */
     public function mytask(TaskRepository $taskRepository): Response
     {
       // dump( $this->getUser());

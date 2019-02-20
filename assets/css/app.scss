@@ -5,12 +5,14 @@ body{
 font-family: 'Mukta', sans-serif;
 height:100vh;
 min-height:550px;
-// background-image: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg);
+background: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
 background-repeat: no-repeat;
 background-size:cover;
 background-position:center;
 position:relative;
- // overflow-y: hidden;
 }
 a{
 text-decoration:none;
@@ -29,7 +31,8 @@ right:0;left:0;
 }
 .white-panel{
  background-color: rgba(255,255, 255, 1);
- height:700px;
+ // height:700px;
+ min-height: 400px;
  position:absolute;
  top:-50px;
  width:50%;
