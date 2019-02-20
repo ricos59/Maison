@@ -36,6 +36,19 @@ class TaskRepository extends ServiceEntityRepository
       return $this->createQueryBuilder('t')
             ->join('t.users', 'u')
             ->andWhere('u.id = :val')
+            ->andWhere('t.date = :date')
+            ->setParameter('val', $user)
+            ->setParameter('date', new \DateTime(date("Y-m-d")))
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findByUserDateLate(User $user)
+    {
+      return $this->createQueryBuilder('t')
+            ->join('t.users', 'u')
+            ->andWhere('u.id = :val')
             ->andWhere('t.date < :date')
             ->setParameter('val', $user)
             ->setParameter('date', new \DateTime(date("Y-m-d")))

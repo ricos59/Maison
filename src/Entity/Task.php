@@ -25,7 +25,7 @@ class Task
     private $title;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $date;
 

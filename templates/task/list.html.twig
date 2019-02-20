@@ -1,0 +1,18 @@
+<tr>
+  <td>{{ task.id }}</td>
+  <td>{{ task.title }}</td>
+  <td>{{ task.date ? task.date|date('d-m-Y') : '' }}</td>
+  <td>{{ task.comments }}</td>
+  <td>{{ task.frequencyChoice }}</td>
+  <td>{{ task.frequency }}</td>
+  <td>
+    {% for user in task.users %}
+    {{ user.username }}
+    {% endfor %}
+  </td>
+
+  <td>
+    <a href="{{ path('task_show', {'id': task.id}) }}">show</a>
+    <a href="{{ path('task_edit', {'id': task.id}) }}">edit</a>
+  </td>
+</tr>

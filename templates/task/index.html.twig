@@ -3,48 +3,43 @@
 {% block title %}Task index{% endblock %}
 
 {% block body %}
-    <h1>Task index</h1>
+<h1>Task index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Comments</th>
-                <th>Frequency_choice</th>
-                <th>Frequency</th>
-                <th>Utilisateurs</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for task in tasks %}
-            <tr>
-                <td>{{ task.id }}</td>
-                <td>{{ task.title }}</td>
-                <td>{{ task.date ? task.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ task.comments }}</td>
-                <td>{{ task.frequencyChoice }}</td>
-                <td>{{ task.frequency }}</td>
-                <td>
-                  {% for user in task.users %}
-                  {{ user.username }}
-                  {% endfor %}
-                </td>
-
-                <td>
-                    <a href="{{ path('task_show', {'id': task.id}) }}">show</a>
-                    <a href="{{ path('task_edit', {'id': task.id}) }}">edit</a>
-                </td>
-            </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Comments</th>
+      <th>Frequency_choice</th>
+      <th>Frequency</th>
+      <th>Utilisateurs</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+        {{ include ("task/list.html.twig") }}
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <tr>
+          <td colspan="7">no records found</td>
+        </tr>
+    {% endfor %}
 
-    <a href="{{ path('task_new') }}">Create new</a>
+    {% if tasks_late is defined %}
+      <tr>
+        <td>
+          <h1>Taches en retard</h1>
+        </td>
+      </tr>
+
+      {% for task in tasks_late %}
+        {{ include ("task/list.html.twig") }}
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+<a href="{{ path('task_new') }}">Create new</a>
 {% endblock %}
