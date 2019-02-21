@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class TaskType extends AbstractType
 {
@@ -20,17 +21,19 @@ class TaskType extends AbstractType
       $builder
           ->add('title', TextType::class, ['label' => 'Nom de la tâche'])
           ->add('date', DateType::class, ['label' => 'Prochaine date d\'echéance'])
-          ->add('comments', TextareaType::class, ['label' => 'Notes'])
+          ->add('comments', TextareaType::class, ['label' => 'Notes', 'required'   => false])
           ->add('frequency_choice', ChoiceType::class, [
             'label' => 'Répéter la fréquence',
             'choices' => [
+              'Choisir une date' => NULL,
               'jour' => 'jour',
               'mois' => 'mois',
               'année' => 'année',
             ],
           ])
-          ->add('frequency', IntegerType::class, ['label' => 'Répétition'])
+          ->add('frequency', IntegerType::class, ['label' => 'Répétition', 'required'   => false])
           ->add('users')
+          ->add('validated', CheckboxType::class, ['label' => 'Effectuer', 'required'   => false])
       ;
     }
 
