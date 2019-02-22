@@ -14,9 +14,9 @@
     {% block menu %}
 
     {% include('menu.html.twig') %}
-    
+
     {% endblock %}
-    <div class="white-panel">
+    <div class="white-panel {% block class %}large{% endblock %}">
       <div class="login-show">
         {% block body %}{% endblock %}
       </div>

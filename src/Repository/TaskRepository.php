@@ -21,49 +21,65 @@ class TaskRepository extends ServiceEntityRepository
     parent::__construct($registry, Task::class);
   }
 
-  public function findByUser(User $user)
+  public function whereUser(User $user)
   {
     $qb= $this->createQueryBuilder('t')
-              ->join('t.users', 'u')
-              ->andWhere('u.id = :val')
-              ->setParameter('val', $user);
+    ->join('t.users', 'u')
+    ->andWhere('u.id = :val')
+    ->setParameter('val', $user);
 
-    $qb= $this->whereNoValidated($qb);
+    return $qb;
+  }
+
+  public function findByUser(User $user)
+  {
+    $qb=$this->whereUser($user);
 
     return $qb->getQuery()
-              ->getResult();
+    ->getResult();
+
   }
 
   public function findByUserDate(User $user)
   {
-    return $this->createQueryBuilder('t')
-                ->join('t.users', 'u')
-                ->andWhere('u.id = :val')
-                ->andWhere('t.date = :date')
-                ->andWhere("t.validated= :0")
-                ->setParameter('val', $user)
-                ->setParameter('date', new \DateTime(date("Y-m-d")))
-                ->getQuery()
-                ->getResult();
+    $qb=$this->whereUser($user);
+    $qb= $this->whereNoValidated($qb);
+    $qb= $this->whereDateNow($qb);
+
+    return $qb->getQuery()
+    ->getResult();
   }
 
   public function findByUserDateLate(User $user)
   {
-    return $this->createQueryBuilder('t')
-                ->join('t.users', 'u')
-                ->andWhere('u.id = :val')
-                ->andWhere('t.date < :date')
-                ->setParameter('val', $user)
-                ->setParameter('date', new \DateTime(date("Y-m-d")))
-                ->getQuery()
-                ->getResult()
-    ;
+    $qb=$this->whereUser($user);
+    $qb=$this->whereDateInf($qb);
+
+
+    return $qb->getQuery()
+    ->getResult();
   }
 
   public function whereNoValidated(QueryBuilder $qb)
   {
     $qb->andWhere('t.validated= :validated_value')
-       ->setParameter('validated_value', '0');
+    ->setParameter('validated_value', '0');
+
+    return $qb;
+  }
+
+  public function whereDateNow(QueryBuilder $qb)
+  {
+    $qb->andWhere('t.date = :date_value')
+    ->setParameter('date_value', new \DateTime(date("Y-m-d")));
+
+    return $qb;
+  }
+
+  public function whereDateInf(QueryBuilder $qb)
+  {
+    $qb->andWhere('t.date < :date_value_inf')
+    ->setParameter('date_value_inf', new \DateTime(date("Y-m-d")));
 
     return $qb;
   }

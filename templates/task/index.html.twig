@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block title %}Task index{% endblock %}
 
 {% block body %}
@@ -23,14 +25,14 @@
         {{ include ("task/list.html.twig") }}
         {% else %}
         <tr>
-          <td colspan="7">no records found</td>
+          <td colspan="7">Aucun résultat</td>
         </tr>
     {% endfor %}
 
     {% if tasks_late is defined %}
       <tr>
         <td>
-          <h1>Taches en retard</h1>
+          <h1>Tâches en retard</h1>
         </td>
       </tr>
 
@@ -41,5 +43,5 @@
   </tbody>
 </table>
 
-<a href="{{ path('task_new') }}">Create new</a>
+<a href="{{ path('task_new') }}">Créer une tâches</a>
 {% endblock %}

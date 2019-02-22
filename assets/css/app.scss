@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Mukta');
-@import "~bootstrap/dist/css/bootstrap.min.css";
+
+$link-color: #444444;
+
+@import "~bootstrap/scss/bootstrap";
 body{
 font-family: 'Mukta', sans-serif;
 height:100vh;
@@ -18,6 +21,7 @@ a{
 text-decoration:none;
 color:#444444;
 }
+
 .login-reg-panel{
  position: relative;
  top: 50%;
@@ -40,6 +44,10 @@ right:0;left:0;
  transition:.3s ease-in-out;
  z-index:0;
  box-shadow: 0 0 15px 9px #00000096;
+}
+.large{
+  width: 83%;
+  right: calc(30%);
 }
 .login-reg-panel input[type="radio"]{
  position:relative;
@@ -101,7 +109,7 @@ right:0;left:0;
  border: 1px solid #b5b5b5;
  outline: none;
 }
-.login-show input[type="submit"] {
+a.btn, button.btn, .login-show input[type="submit"] {
  max-width: 250px;
  width: 100%;
  background: #444444;
@@ -112,6 +120,9 @@ right:0;left:0;
  border-radius: 2px;
  float:right;
  cursor:pointer;
+}
+a.btn {
+    margin-bottom: 4px
 }
 .login-show a{
  display:inline-block;
@@ -151,11 +162,4 @@ right:0;left:0;
  font-weight: bold;
  letter-spacing: 1px;
  z-index: 99;
-}
-a{
-text-decoration:none;
-color:#2c7715;
-}
-nav, nav a{
-  color: white;
 }
