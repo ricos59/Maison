@@ -13,7 +13,8 @@
   <div class="login-reg-panel">
     {% block menu %}
 
-    {% include('menu.html.twig') %}
+
+    {{ render(controller('App\\Controller\\TaskController::menu'))}}
 
     {% endblock %}
     <div class="white-panel {% block class %}large{% endblock %}">

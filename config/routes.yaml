@@ -1,50 +1,57 @@
 fos_user_accueil:
-    path: /
-    controller: App\Controller\bundles\FOSUserBundle\SecurityController::loginAction
+    path:             /
+    controller:       App\Controller\bundles\FOSUserBundle\SecurityController::loginAction
 
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    resource:         "@FOSUserBundle/Resources/config/routing/all.xml"
 
 task_index:
-    path: /task
-    controller: App\Controller\TaskController::index
-    methods: GET
+    path:             /task
+    controller:       App\Controller\TaskController::index
+    methods:          GET
 
 task_new:
-    path: /task/new
-    controller: App\Controller\TaskController::new
-    methods: [GET, POST]
+    path:             /task/new
+    controller:       App\Controller\TaskController::new
+    methods:          [GET, POST]
 
 task_show:
-    path: /task/{id}
-    controller: App\Controller\TaskController::show
+    path:             /task/{id}
+    controller:       App\Controller\TaskController::show
     requirements:
-      id: '\d+'
-    methods: GET
+      id:             '\d+'
+    methods:          GET
 
 task_edit:
-    path: /task/{id}/edit
-    controller: App\Controller\TaskController::edit
+    path:             /task/{id}/edit
+    controller:       App\Controller\TaskController::edit
     requirements:
-      id: '\d+'
-    methods: [GET, POST]
+      id:             '\d+'
+    methods:          [GET, POST]
 
 task_delete:
-    path: /task/{id}/
-    controller: App\Controller\TaskController::delete
+    path:             /task/{id}/
+    controller:       App\Controller\TaskController::delete
     requirements:
-      id: '\d+'
-    methods: DELETE
+      id:             '\d+'
+    methods:          DELETE
 
-task_user:
-    path: /task/mytask
-    controller: App\Controller\TaskController::mytask
-    methods: GET
+task_current_user:
+    path:             /task/mytask
+    controller:       App\Controller\TaskController::mytask
+    methods:          GET
 
 task_user_day:
-    path: /task/mytask/date/
-    controller: App\Controller\TaskController::mytaskday
-    methods: GET
+    path:             /task/mytask/date/
+    controller:       App\Controller\TaskController::mytaskday
+    methods:          GET
 
-#    path: /
-#    controller: App\Controller\DefaultController::index
+task_user:
+    path:         /task/user/{user}/
+    controller:   App\Controller\TaskController::taskUser
+    requirements:
+      user:             '\d+'
+    methods:      GET
+
+#    path:            /
+#    controller:      App\Controller\DefaultController::index

@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Entity\User;
 use App\Form\TaskEditType;
 use App\Form\TaskNewType;
 use App\Repository\TaskRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -102,6 +104,22 @@ class TaskController extends AbstractController
         return $this->render('task/index.html.twig', [
             'tasks' => $taskRepository->findByUserDate($this->getUser()),
             'tasks_late'=> $taskRepository->findByUserDateLate($this->getUser()),
+        ]);
+    }
+
+    public function taskUser(TaskRepository $taskRepository, User $user): Response
+    {
+        return $this->render('task/index.html.twig', [
+            'tasks' => $taskRepository->findByUserDate($user),
+            'tasks_late'=> $taskRepository->findByUserDateLate($user),
+        ]);
+    }
+
+    public function menu(UserRepository $user): Response
+    {
+
+        return $this->render('menu.html.twig', [
+            'users' =>$user->findAll(),
         ]);
     }
 }

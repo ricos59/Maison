@@ -1,30 +1,39 @@
 <div class="register-info-box">
-    <h2>Menu</h2>
+  <h2>Menu</h2>
 
-    <ul class="nav flex-column">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="{{ path("fos_user_profile_show") }}">Voir mon profil</a>
-          <a class="dropdown-item" href="{{ path("fos_user_profile_edit") }}">Modifier mon profil</a>
-          <a class="dropdown-item" href="{{ path("fos_user_change_password") }}">Modifier mon mot de passe</a>
-          <!-- <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ path("fos_user_security_logout") }}">Se déconnecter</a> -->
-        </div>
-      </li>
+  <ul class="nav flex-column">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ path("fos_user_profile_show") }}">Voir mon profil</a>
+        <a class="dropdown-item" href="{{ path("fos_user_profile_edit") }}">Modifier mon profil</a>
+        <a class="dropdown-item" href="{{ path("fos_user_change_password") }}">Modifier mon mot de passe</a>
+        <!-- <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ path("fos_user_security_logout") }}">Se déconnecter</a> -->
+      </div>
+    </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Taches</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="{{ path("task_index") }}">Toutes les taches</a>
-          <a class="dropdown-item" href="{{ path("task_new") }}">Nouvelle tache</a>
-          <a class="dropdown-item" href="{{ path("task_user") }}">Mes taches</a>
-          <a class="dropdown-item" href="{{ path("task_user_day") }}">Taches du jour</a>
-        </div>
-      </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Taches</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ path("task_index") }}">Toutes les taches</a>
+        <a class="dropdown-item" href="{{ path("task_new") }}">Nouvelle tache</a>
+        <a class="dropdown-item" href="{{ path("task_current_user") }}">Mes taches</a>
+        <a class="dropdown-item" href="{{ path("task_user_day") }}">Taches du jour</a>
+      </div>
+    </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path("fos_user_security_logout") }}">Se déconnecter</a>
-      </li>
-    </ul>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Taches des utilisateurs</a>
+      <div class="dropdown-menu">
+        {% for item in users %}
+        <a class="dropdown-item" href="{{ path("task_user",{user:item.id}) }}">{{item}}</a>
+        {% endfor %}
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{ path("fos_user_security_logout") }}">Se déconnecter</a>
+    </li>
+  </ul>
 </div>

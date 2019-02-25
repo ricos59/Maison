@@ -50,9 +50,9 @@ class Task
     private $users;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", options={"default" : 0})
      */
-    private $validated;
+    private $validated = 0;
 
     public function __construct()
     {
